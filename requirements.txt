@@ -1,0 +1,8 @@
+streamlit
+langchain
+assemblyai
+pytube
+youtube-transcript-api
+weaviate-client
+openai
+tiktoken
