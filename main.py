@@ -51,6 +51,7 @@ def process_video_callback():
     st.session_state.process_question_clicked = False
 def process_question_callback():
     st.session_state.process_question_clicked = True
+    st.session_state.go_to_timestamp_clicked = False
 def go_to_timestamp_callback():
     st.session_state.go_to_timestamp_clicked = True
 
