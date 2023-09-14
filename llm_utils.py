@@ -1,6 +1,7 @@
 import os
 import math
 import streamlit as st
+from palm_api import PALM
 from langchain.llms import OpenAI
 from langchain.vectorstores import Weaviate
 from langchain.chat_models import ChatOpenAI
@@ -50,11 +51,12 @@ def llm_summary(subtitles):
     """
     try:
         prompt = PromptTemplate(template=template, input_variables=["srt"])
-        llm = OpenAI(openai_api_key=OPENAI_API_KEY)
+        # llm = OpenAI(openai_api_key=OPENAI_API_KEY)
+        llm = PALM()
         llm_chain = LLMChain(prompt=prompt, llm=llm)
         summary = llm_chain.run(subtitles)
     except Exception as e:
-        return 'fail', 'OpenAI Token limit exceeded.'
+        return 'fail', 'Token limit exceeded.'
     else:
         return 'success', summary
 
@@ -73,10 +75,11 @@ def llm_answer(question, captions):
     """
     try:
         prompt = PromptTemplate(template=template, input_variables=["data", "question"])
-        llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model='gpt-3.5-turbo-16k-0613')
+        # llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model='gpt-3.5-turbo-16k-0613')
+        llm = PALM()
         llm_chain = LLMChain(prompt=prompt, llm=llm)
         output = llm_chain.run({'data':data, 'question':question})
         timestamp = int(docs[0].metadata['start'])
     except Exception as e:
-        return 'fail', 'OpenAI token limit exceeded.'
+        return 'fail', 'Token limit exceeded.'
     return 'success', (output, timestamp)
