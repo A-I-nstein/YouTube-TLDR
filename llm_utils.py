@@ -2,15 +2,15 @@ import os
 import math
 import streamlit as st
 from palm_api import PALM
-from langchain.llms import OpenAI
+# from langchain.llms import OpenAI
 from langchain.vectorstores import Weaviate
-from langchain.chat_models import ChatOpenAI
+# from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate, LLMChain
 from langchain.embeddings.openai import OpenAIEmbeddings
 
 
 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 WEAVIATE_API_KEY = os.getenv('WEAVIATE_API_KEY')
 WEAVIATE_URL = os.getenv('WEAVIATE_URL')
 
