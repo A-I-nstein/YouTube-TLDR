@@ -1,16 +1,16 @@
 import os
 import math
 import streamlit as st
-from palm_api import PALM
-# from langchain.llms import OpenAI
+# from palm_api import PALM
+from langchain.llms import OpenAI
 from langchain.vectorstores import Weaviate
-# from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate, LLMChain
 from langchain.embeddings.openai import OpenAIEmbeddings
 
 
 
-# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 WEAVIATE_API_KEY = os.getenv('WEAVIATE_API_KEY')
 WEAVIATE_URL = os.getenv('WEAVIATE_URL')
 
@@ -51,8 +51,8 @@ def llm_summary(subtitles):
     """
     try:
         prompt = PromptTemplate(template=template, input_variables=["srt"])
-        # llm = OpenAI(openai_api_key=OPENAI_API_KEY)
-        llm = PALM()
+        llm = OpenAI(openai_api_key=OPENAI_API_KEY)
+        # llm = PALM()
         llm_chain = LLMChain(prompt=prompt, llm=llm)
         summary = llm_chain.run(subtitles)
     except Exception as e:
@@ -75,8 +75,8 @@ def llm_answer(question, captions):
     """
     try:
         prompt = PromptTemplate(template=template, input_variables=["data", "question"])
-        # llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model='gpt-3.5-turbo-16k-0613')
-        llm = PALM()
+        llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model='gpt-3.5-turbo-16k-0613')
+        # llm = PALM()
         llm_chain = LLMChain(prompt=prompt, llm=llm)
         output = llm_chain.run({'data':data, 'question':question})
         timestamp = int(docs[0].metadata['start'])
