@@ -6,3 +6,4 @@ youtube-transcript-api
 weaviate-client
 openai
 tiktoken
+google-generativeai
