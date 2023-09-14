@@ -66,7 +66,7 @@ def llm_answer(question, captions):
     except Exception as e:
         return 'fail', 'Could not extract transcript. Please try a different video.'
     template = """\
-    Answer a question when the question and the relevant data is given.\
+    Answer a question when the question and the relevant data is given. If the answer is not in Relevant Data, say "No Answer Found"\
     Relevant data: {data}\
     Question: {question}\
     Answer:
