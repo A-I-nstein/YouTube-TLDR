@@ -8,6 +8,6 @@ Instructions:
 5. Refresh the page befor you paste a new link to clear cache. 
 
 Technology used:
-1. LangChain: To integrate OpenAI models and Weaviate vector database.
+1. LangChain: To integrate LLM models and vector databases to create a pipeine.
 2. AssemblyAI: To generate transcript for videos that do not come with captions.
 3. Weaviate: To store vector data.
