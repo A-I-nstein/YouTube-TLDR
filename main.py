@@ -68,7 +68,7 @@ with container_1:
             label = 'Video Link',
             label_visibility = 'collapsed',
             placeholder = 'https://www.youtube.com/watch?v=0CmtDk-joT4',
-            value = 'https://www.youtube.com/watch?v=0CmtDk-joT4'
+            #value = 'https://www.youtube.com/watch?v=0CmtDk-joT4'
             )
     with col_2:
         process_video = st.button('Process Video', on_click=process_video_callback)
@@ -76,6 +76,9 @@ with container_1:
 # processed output container
 
 if process_video or st.session_state.process_video_clicked:
+    if video_link == "":
+        st.error("Please provide a valid link!")
+        exit(0)
     st.session_state.process_video_clicked = True
     st.divider()
     container_2 = st.container()
