@@ -132,7 +132,9 @@ if process_question or st.session_state.process_question_clicked:
             answer_box = st.text_area(
                 label = 'Answer',
                 label_visibility = 'collapsed',
-                value = answer
+                value = answer,
+                disabled = True,
+                height = 300
                 )
         with col_2:
             go_to_timestamp = st.button('Go To Timestamp', on_click=go_to_timestamp_callback)
