@@ -24,5 +24,5 @@ st.title(":video_camera: YouTube Video Q and A")
 
 # UI Elements
 
-st.markdown("We're working on improving the site! Here's a demo video (Thanks to Weaviate!)")
+st.subtitle("Sorry! We're working on improving this site! Here's a demo video in the meanwhile (Thanks to Weaviate!)")
 st.video("video.mp4")
